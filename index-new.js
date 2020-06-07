@@ -15,18 +15,9 @@ const PREFIX = '!';
 
 
 bot.on('ready', () =>{
-    checkUpdate({
-        name: pkg.name,
-        currentVersion: pkg.version,
-        user: 'Papa-DMan',
-        branch: 'master',
-    }, function(err, latestVersion, defaultMessage){
-        if(!err){
-            console.log('This bot is online! Version: ' + defaultMessage);
-        }
-    })
-});
-
+    
+    console.log('This bot is online! Version: ' + version);
+})
 var musicUrls = [];
 var musictitle = [];
 bot.on('message', async msg=> { 
