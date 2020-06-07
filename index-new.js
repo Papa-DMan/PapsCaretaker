@@ -1,19 +1,32 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const package = require('./package.json')
+const pkg = require('./package.json');
 const search = require('yt-search');
 const ytdl = require('ytdl-core');
 const opus = require('@discordjs/opus');
 const ffmpeg = require('ffmpeg-static');
-bot.login(package.token);
+const checkUpdate = require('check-update-github');
+
+bot.login(pkg.token);
 var servers = {};
-var version = package.version
+var version = pkg.version
 const PREFIX = '!';
 
 
+
 bot.on('ready', () =>{
-    console.log('This bot is online! Version: ' + version);
-})
+    checkUpdate({
+        name: pkg.name,
+        currentVersion: pkg.version,
+        user: 'Papa-DMan',
+        branch: 'master',
+    }, function(err, latestVersion, defaultMessage){
+        if(!err){
+            console.log('This bot is online! Version: ' + defaultMessage);
+        }
+    })
+});
+
 var musicUrls = [];
 var musictitle = [];
 bot.on('message', async msg=> { 
