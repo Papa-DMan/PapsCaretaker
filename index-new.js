@@ -129,11 +129,10 @@ bot.on('message', async msg=> {
         return msg.channel.send(
             "You have to be in a voice channel to stop the music!"
         );
+        }
         musicUrls.splice(0,musicUrls.length);
         musictitle.splice(0,musictitle.length);
         voiceChannel.leave()
-
-        }
     }
     async function addQueue(url, voiceChannel){
         console.log(musicUrls.length)
