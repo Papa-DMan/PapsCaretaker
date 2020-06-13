@@ -11,7 +11,7 @@ bot.login(pkg.token);
 var servers = {};
 var version = pkg.version
 const PREFIX = '!';
-
+var time = 0;
 
 
 bot.on('ready', () =>{
@@ -35,9 +35,65 @@ bot.on('message', async msg=> {
     let args = msg.content.substring(PREFIX.length).split(" ");
     let command = args[0]
     const voiceChannel = msg.member.voice.channel;
-
+    var random
     
     if (msg.channel.type !== 'text') return;
+    while (random = 1) {
+        
+        let asdf = Math.random() * 100;
+        let time = parseInt(asdf)
+        console.log(time)
+        
+        if (time = 69) {
+            let qwer = Math.random() * 10;
+            let select = parseInt(qwer)
+            if(select = '1'){
+                addQueue('https://www.youtube.com/watch?v=EWMPVn1kgIQ', voiceChannel); //enourmus pp
+            }if(select = '2'){
+                addQueue('https://www.youtube.com/watch?v=tjLr1XhBKVQ', voiceChannel); //it's okay to be gay
+            }if(select = '3'){
+                addQueue('https://www.youtube.com/watch?v=yEqZPXlrI0Q', voiceChannel) // Obama
+            }if(select = '4'){
+                addQueue('https://www.youtube.com/watch?v=LVI6nY8BQ50', voiceChannel) // joe biden like nibba soda
+            }if (select = '5'){
+                addQueue('https://www.youtube.com/watch?v=2ZIpFytCSVc', voiceChannel) // Bruh
+            }if (select = '6'){
+                addQueue('https://www.youtube.com/watch?v=AKf7QKTmJSg', voiceChannel) // E
+            }if (select = '7'){
+                addQueue('https://www.youtube.com/watch?v=8m8p-hkOsXo', voiceChannel) // Hamburgg
+            }if (select = '8'){
+                addQueue('https://www.youtube.com/watch?v=igc9XClqvMM', voiceChannel) // Gayshaltt
+            }if (select = '9'){
+                addQueue('https://www.youtube.com/watch?v=YNSscFeZ_Yo', voiceChannel) // So funny
+            }else{
+                return;
+            }
+
+        }else{
+            console.log('time is not 69')
+            return;
+        }
+    }
+
+
+    if (args[0] == 'random'){
+        if (random = 0){
+            if (msg.member.voice.channel){
+                const connection = await msg.member.voice.channel.join();
+            }
+            else{
+                msg.reply('You need to join a voice channel first!');
+            }
+            console.log('random is on')
+            let random = 1
+        }else {
+            let random = 0
+        }
+    }
+    while (random = 1){
+        
+    }
+
     if (args[0] == 'play'){
         if (!voiceChannel) {
             return msg.reply('You need to join a voice channel first!');
@@ -122,6 +178,14 @@ bot.on('message', async msg=> {
         }
         else{
             addQueue('https://www.youtube.com/watch?v=LVI6nY8BQ50', voiceChannel)
+        }
+    }
+    if (args[0] == 'hoob'){
+        if (!voiceChannel){
+            return msg.reply('You not da soda!')
+        }
+        else{
+            addQueue('https://www.youtube.com/watch?v=igc9XClqvMM', voiceChannel)
         }
     }
     if (args[0] == 'stop'){
