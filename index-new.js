@@ -38,7 +38,7 @@ bot.on('message', async msg=> {
     var random
     
     if (msg.channel.type !== 'text') return;
-    while (random = 1) {
+/*    while (random = 1) {
         
         let asdf = Math.random() * 100;
         let time = parseInt(asdf)
@@ -73,7 +73,7 @@ bot.on('message', async msg=> {
             console.log('time is not 69')
             return;
         }
-    }
+    } 
 
 
     if (args[0] == 'random'){
@@ -93,7 +93,7 @@ bot.on('message', async msg=> {
     while (random = 1){
         
     }
-
+    */
     if (args[0] == 'play'){
         if (!voiceChannel) {
             return msg.reply('You need to join a voice channel first!');
