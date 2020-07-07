@@ -6,6 +6,8 @@ const ytdl = require('ytdl-core');
 const opus = require('@discordjs/opus');
 const ffmpeg = require('ffmpeg-static');
 const checkUpdate = require('check-update-github');
+const fs = require('fs');
+
 
 bot.login(pkg.token);
 var servers = {};
