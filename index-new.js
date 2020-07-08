@@ -202,6 +202,14 @@ bot.on('message', async msg=> {
             addQueue('https://www.youtube.com/watch?v=igc9XClqvMM', voiceChannel)
         }
     }
+    if (args[0] == 'jam'){
+        if (!voiceChannel){
+            return msg.reply('bruh')
+        }
+        else{
+            addQueue('https://www.youtube.com/watch?v=P7OJzKpw1VE', voiceChannel)
+        }
+    }
     if (args[0] == 'stop'){
         if (!voiceChannel) {
         return msg.channel.send(
