@@ -167,7 +167,7 @@ bot.on('message', async msg=> {
             return msg.reply("That's Not Poggers")
         }
         else {
-            addQueue('https://youtu.be/M0RYjL8rd4Y', voiceChannel);
+            addQueue('https://www.youtube.com/watch?v=RZpLlwU6XlY', voiceChannel);
         }
     }
     if (args[0] == 'gay'){
