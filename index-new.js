@@ -108,6 +108,10 @@ bot.on('message', async msg=> {
             let url = args[1];
             addQueue(url, voiceChannel)
         }
+        else if (args[1].includes("https://")){
+            let url = args[1];
+            addQueue(url, voiceChannel)
+        }
         else{
             var params = args.slice(1).join(' ');
             search(params, async function(err, res) {
@@ -156,6 +160,14 @@ bot.on('message', async msg=> {
         }
         else {
             addQueue('https://www.youtube.com/watch?v=EWMPVn1kgIQ', voiceChannel);
+        }
+    }
+    if (args[0] == 'poggers'){
+        if (!voiceChannel) {
+            return msg.reply("That's Not Poggers")
+        }
+        else {
+            addQueue('https://youtu.be/M0RYjL8rd4Y', voiceChannel);
         }
     }
     if (args[0] == 'gay'){
