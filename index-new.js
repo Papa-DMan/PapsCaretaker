@@ -215,7 +215,7 @@ bot.on('message', async msg=> {
             return msg.reply('gruh')
         }
         else{
-            addQueeu('https://www.youtube.com/watch?v=ZLiN2Js1UtQ', voiceChannel)
+            addQueue('https://www.youtube.com/watch?v=ZLiN2Js1UtQ', voiceChannel)
         }
     }
     if (args[0] == 'stop'){
