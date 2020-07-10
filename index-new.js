@@ -210,6 +210,14 @@ bot.on('message', async msg=> {
             addQueue('https://www.youtube.com/watch?v=P7OJzKpw1VE', voiceChannel)
         }
     }
+    if (args[0] == 'door'){
+        if (!voiceChannel){
+            return msg.reply('gruh')
+        }
+        else{
+            addQueeu('https://www.youtube.com/watch?v=ZLiN2Js1UtQ', voiceChannel)
+        }
+    }
     if (args[0] == 'stop'){
         if (!voiceChannel) {
         return msg.channel.send(
