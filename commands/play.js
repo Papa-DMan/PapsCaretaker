@@ -1,4 +1,4 @@
-exports.run = async (bot, msg, args, queue, search, ytdl, ffmpeg, fs, pkg, opus,) => {
+exports.run = async (bot, msg, args, queue, search, ytdl, ffmpeg, fs, pkg, opus, playSong, newPlay) => {
     
     var voiceChannel = msg.member.voice.channel;
     
@@ -61,26 +61,7 @@ async function addQueue(url, title, voiceChannel){
         msg.channel.send(`Added ${title} to the queue`);
     }
     else {
-        playSong(voiceChannel);
+        newPlay(voiceChannel, 0);
     }
-}
-
-async function playSong(voiceChannel){
-    voiceChannel.join().then(connection => {
-        const stream = ytdl(queue[0][0], { filter: 'audioonly' });
-        const title = queue[0][1]
-        msg.channel.send(`Now playing ${title}`);
-        const dispatcher = connection.play(stream);
-        dispatcher.on("finish", () => {
-            queue.shift();
-            if(queue.length == 0)
-                voiceChannel.leave();
-            else{
-                setTimeout(() => {
-                    playSong(voiceChannel);
-                }, 4000)
-            }
-        })
-    });
-}
+}   
 }

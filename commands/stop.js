@@ -8,7 +8,7 @@ exports.run = async (bot, msg, args, queue) => {
         return msg.channel.send(
             "You have to be in a voice channel to stop the music!"
         );
+            queue.length = 0
             voiceChannel.leave()
-	    queue = []
-
+            
 }

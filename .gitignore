@@ -1,2 +1,5 @@
 
 *.pem
+node_modules/*
+node_modules/.bin/detect-libc
+node_modules/.bin/detect-libc
