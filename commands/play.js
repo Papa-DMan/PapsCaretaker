@@ -1,4 +1,5 @@
-exports.run = async (bot, msg, args, queue, search, ytdl, ffmpeg, fs, pkg, opus, playSong, newPlay) => {
+const search = require('yt-search');
+exports.run = async (bot, msg, args, queue, ytdl, ffmpeg, fs, pkg, opus, getTweet, playSong, newPlay ) => {
     
     var voiceChannel = msg.member.voice.channel;
     
@@ -8,18 +9,9 @@ exports.run = async (bot, msg, args, queue, search, ytdl, ffmpeg, fs, pkg, opus,
         return msg.reply("You must first join a voice channel!")
     }
 
-    if (args[0].includes("http://")){
-        let url = args[1];
-        addQueue(url)
+    if (args[0].includes("http://") || args[0].includes("https://") || args[0].includes("www.")){
+        addQueue(args[1])
         }
-    if (args[0].includes("https://")){
-        let url = args[1];
-        addQueue(url)
-        }
-    else if (args[0].includes("www.")){
-        let url = args[1];
-        addQueue(url)
-    }
     else{
         var params = args.slice().join(' ');
         await search(params, async function(err, res) {
@@ -51,14 +43,10 @@ exports.run = async (bot, msg, args, queue, search, ytdl, ffmpeg, fs, pkg, opus,
     }
     
 async function addQueue(url, title, voiceChannel){
-    queue.push(url)
-    var i = queue.length - 1
-    var x = queue[i]
-    queue[i] = []
-    queue[i][0] = x
-    queue[i][1] = String(title)
+    var song = {title:String(title), url:url,}
+    queue.push(song)
     if (queue.length > 1) {
-        msg.channel.send(`Added ${title} to the queue`);
+        msg.channel.send(`Added ${song.title} to the queue`);
     }
     else {
         newPlay(voiceChannel, 0);

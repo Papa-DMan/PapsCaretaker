@@ -228,6 +228,16 @@ bot.on('message', async msg=> {
         musictitle.splice(0,musictitle.length);
         voiceChannel.leave()
     }
+    else {
+        try {
+            delete require.cache[require.resolve(`./commands/${command}.js`)];
+    
+            let commandFile = require(`./commands/${command}.js`);
+            commandFile.run(bot, msg, args, musicUrls)
+        } catch (e) {
+            console.log(e.stack);
+        }
+    }
     async function addQueue(url, voiceChannel){
         console.log(musicUrls.length)
         if (musicUrls.length > 0) {
@@ -247,14 +257,7 @@ bot.on('message', async msg=> {
         }
     }
 
-    try {
-        delete require.cache[require.resolve(`./commands/${command}.js`)];
 
-        let commandFile = require(`./commands/${command}.js`);
-        commandFile.run(bot, msg, args, musicUrls)
-    } catch (e) {
-        console.log(e.stack);
-    }
     
     let queuelength = musicUrls.length
     console.log(queuelength)

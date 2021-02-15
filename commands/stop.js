@@ -1,8 +1,7 @@
 const search = require('yt-search');
 const ytdl = require('ytdl-core');
-const opus = require('@discordjs/opus');
 const ffmpeg = require('ffmpeg-static');
-exports.run = async (bot, msg, args, queue) => {
+exports.run = async (bot, msg, args, queue, opus) => {
     const voiceChannel = msg.member.voice.channel;
     if (!voiceChannel)
         return msg.channel.send(
