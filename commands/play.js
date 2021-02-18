@@ -1,4 +1,7 @@
 const search = require('yt-search');
+const ytpl = require('ytpl')
+const needle = require('needle');
+const spotify = require('')
 exports.run = async (bot, msg, args, queue, ytdl, ffmpeg, fs, pkg, opus, getTweet, playSong, newPlay ) => {
     
     var voiceChannel = msg.member.voice.channel;
@@ -8,9 +11,22 @@ exports.run = async (bot, msg, args, queue, ytdl, ffmpeg, fs, pkg, opus, getTwee
     if (!voiceChannel) {
         return msg.reply("You must first join a voice channel!")
     }
+    if (args[0] === undefined) {
+        return msg.reply("You need to say what you want to play!")
+    }
 
     if (args[0].includes("http://") || args[0].includes("https://") || args[0].includes("www.")){
-        addQueue(args[1])
+        if (args[0].includes("playlist")) {
+            const playlist = await ytpl(args[0].toString())
+            for (var i = 0; i < playlist.items.length; i++) {
+                addPQueue(playlist.items[i].url, playlist.items[i].title, voiceChannel)
+            }
+            msg.channel.send(`Added ${playlist.title} to the queue (${playlist.items.length} songs added)`)
+            newPlay(voiceChannel, 0);
+        } else {
+            addQueue(args[0])
+        }
+
         }
     else{
         var params = args.slice().join(' ');
@@ -51,5 +67,9 @@ async function addQueue(url, title, voiceChannel){
     else {
         newPlay(voiceChannel, 0);
     }
+}   
+async function addPQueue(url, title,){
+    var song = {title:String(title), url:url,}
+    queue.push(song)
 }   
 }
