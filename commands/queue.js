@@ -8,5 +8,5 @@ exports.run = (bot, msg, args, queue) => {
     }
 
 
-    msg.channel.send("Now Playing : " + queue[0].title + '\n' + "Queue: " + qarr.join('\n'))
+    msg.channel.send("Now Playing : " + queue[0].title + '\n' + "Queue: " + qarr.join('\n').substring(0, 1000))
 }
