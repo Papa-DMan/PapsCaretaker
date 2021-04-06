@@ -1,0 +1,50 @@
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+/home/ec2-user/PapsCaretaker/commands/bal.js:1
+import { getId } from "./currency/init.js";
+^^^^^^
+
+SyntaxError: Cannot use import statement outside a module
+    at Object.compileFunction (node:vm:355:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1022:15)
+    at Module._compile (node:internal/modules/cjs/loader:1056:27)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1121:10)
+    at Module.load (node:internal/modules/cjs/loader:972:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:813:14)
+    at Module.require (node:internal/modules/cjs/loader:996:19)
+    at Module.Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:80:39)
+    at require (node:internal/modules/cjs/helpers:92:18)
+    at Client.<anonymous> (/home/ec2-user/PapsCaretaker/index.js:132:31)
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0

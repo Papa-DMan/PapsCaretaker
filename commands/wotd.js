@@ -5,8 +5,30 @@ for most modules imported like this you can hover over anything from it and in v
 options with tab
 
 */
-exports.run = (bot, msg, args,) => {                       
-    var tweet = fs.readFileSync(__dirname + '/../tweets.txt', 'utf8')   //reads the file from one directory up (..) called tweets.txt and gets the contents as a string
-    //msg.channel.send("@everyone" +", The Don Cheadle word of the day!")
-    msg.channel.send(tweet)
+exports.run = async (bot, msg, args,) => {                       
+    var tweet = await fs.readFileSync("tweets.txt", 'utf8')
+    var channels = require('./../channels.json')
+    if (args[0] == 'enable') {
+        if (!channels.includes(msg.channel.id)) {
+            channels.push(msg.channel.id)
+            fs.writeFile('./channels.json', JSON.stringify(channels), (err) => {
+                if (err) throw err
+            })
+            msg.channel.send("Subscribed to the Don Cheadle word of the day!")
+        } else {
+            msg.channel.send("This channel is already subscribed to the Don Cheadle word of the day!")
+        }
+
+    } else if (args[0] == 'disable'){
+        let forDeletion = msg.channel.id
+        channels = channels.filter(item => !forDeletion.includes(item))
+        fs.writeFile(__dirname + './channels.json', JSON.stringify(channels), (err) => {
+            if (err) throw err
+        })
+        msg.channel.send("Unsubscribed to the Don Cheadle word of the day!")
+    } else{
+        if (tweet !== "") {
+            msg.channel.send(tweet)
+        }
+    } 
 }

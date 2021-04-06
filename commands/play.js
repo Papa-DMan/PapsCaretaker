@@ -4,7 +4,7 @@ const needle = require('needle');   //webhook package to talk with apis
 const { Base } = require('discord.js'); //discords package
 const pkg = require('../package.json') // import the package.json file
 
-exports.run = async (bot, msg, args, queue, ytdl, ffmpeg, fs, opus, getTweet, playSong, newPlay ) => {
+exports.run = async (bot, msg, args, queue, ytdl, ffmpeg, fs, opus, getTweet, playSong, newPlay, newestPhoto ) => {
 
     var client_id = pkg.spotifyclient_id                        //when importing a json file it creates an object so grabbing a parameter from an object and giving it a variable
     var client_secret = pkg.spotifyclient_secret
@@ -38,6 +38,9 @@ exports.run = async (bot, msg, args, queue, ytdl, ffmpeg, fs, opus, getTweet, pl
             }
             return newPlay(voiceChannel, 0);
         }
+        if (args[0].includes('soundcloud')) {
+            //erm figure this out brain xd
+        }
         if (args[0].includes("playlist")) {
             const playlist = await ytpl(args[0].toString())     //ytpl takes a youtube playlist url and returns an object with an items array with all the songs and urls as properties
             for (var i = 0; i < playlist.items.length; i++) {
@@ -46,7 +49,10 @@ exports.run = async (bot, msg, args, queue, ytdl, ffmpeg, fs, opus, getTweet, pl
             msg.channel.send(`Added ${playlist.title} to the queue (${playlist.items.length} songs added)`)
             newPlay(voiceChannel, 0);
         } else {
-            addQueue(args[0])
+            var link = await ytdl.getInfo(args[0])
+            var linkTitle = link.player_response.videoDetails.title
+            //console.log(linkTitle)
+            addQueue(args[0], linkTitle, voiceChannel)
         }
     }
 
@@ -80,33 +86,34 @@ exports.run = async (bot, msg, args, queue, ytdl, ffmpeg, fs, opus, getTweet, pl
         });
     }
     
-async function addQueue(url, title, voiceChannel){
-    var song = {title:String(title), url:url,}                  //creates an object with properties of title and url
-    queue.push(song)                                            //  Array.push(n) adds n to the last index of Array
-    if (queue.length > 1) {
-        msg.channel.send(`Added ${song.title} to the queue`);
+    async function addQueue(url, title, voiceChannel){
+        var song = {title:String(title), url:url,}                  //creates an object with properties of title and url
+        queue.push(song)                                            //  Array.push(n) adds n to the last index of Array
+        //console.log(queue)
+        if (queue.length > 1) {
+            msg.channel.send(`Added ${song.title} to the queue`);
+        }
+        else {
+            newPlay(voiceChannel, 0);
+        }
+    }   
+    async function addPQueue(url, title,){                      //since both playlists are run in loops a new function was created to add songs to the queue without calling a play function at the end
+        var song = {title:String(title), url:url,}
+        queue.push(song)
     }
-    else {
-        newPlay(voiceChannel, 0);
+    async function spotAuth() {             // according to the spotify api need to get a new key every hour. To get a key must make a post to a url with a base64 encoded string
+        const authparams = {
+            'grant_type': 'client_credentials',
+        }
+        var encloded = new Buffer.from(client_id + ':' + client_secret)
+        const authres = await needle("post", 'https://accounts.spotify.com/api/token',authparams, { headers: { 
+            'Authorization': 'Basic ' + encloded.toString('base64'),
+        }})
+        //console.log(authres)
+        //console.log(encloded.toString("utf8"))
+        // fs.writeFile("spotify.json", JSON.stringify(authres), (err) => {
+        //     if (err) throw err
+        // })
+        return authres.body.access_token
     }
-}   
-async function addPQueue(url, title,){                      //since both playlists are run in loops a new function was created to add songs to the queue without calling a play function at the end
-    var song = {title:String(title), url:url,}
-    queue.push(song)
-}
-async function spotAuth() {             // according to the spotify api need to get a new key every hour. To get a key must make a post to a url with a base64 encoded string
-    const authparams = {
-        'grant_type': 'client_credentials',
-    }
-    var encloded = new Buffer.from(client_id + ':' + client_secret)
-    const authres = await needle("post", 'https://accounts.spotify.com/api/token',authparams, { headers: { 
-        'Authorization': 'Basic ' + encloded.toString('base64'),
-    }})
-    //console.log(authres)
-    //console.log(encloded.toString("utf8"))
-    // fs.writeFile("spotify.json", JSON.stringify(authres), (err) => {
-    //     if (err) throw err
-    // })
-    return authres.body.access_token
-}
 }
