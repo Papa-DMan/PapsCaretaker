@@ -13,3 +13,6 @@ exports.run = async (bot, msg, args, queue, opus) => {
             voiceChannel.leave()
             
 }
+exports.usage = () => {
+    return "Use to stop the music playing and empty the queue"
+}

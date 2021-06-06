@@ -18,8 +18,6 @@ function getId(id) {
     var data = require('./data.json')
     const isId = (element) => element = id;
     var index = data.findIndex(isId)
-    console.log(index)
-    console.log(data[index])
     return data[index]
 }
 module.exports = {newUser, writeData, getId};

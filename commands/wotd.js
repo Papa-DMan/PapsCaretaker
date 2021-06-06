@@ -22,7 +22,7 @@ exports.run = async (bot, msg, args,) => {
     } else if (args[0] == 'disable'){
         let forDeletion = msg.channel.id
         channels = channels.filter(item => !forDeletion.includes(item))
-        fs.writeFile(__dirname + './channels.json', JSON.stringify(channels), (err) => {
+        fs.writeFile('channels.json', JSON.stringify(channels), (err) => {
             if (err) throw err
         })
         msg.channel.send("Unsubscribed to the Don Cheadle word of the day!")
@@ -31,4 +31,7 @@ exports.run = async (bot, msg, args,) => {
             msg.channel.send(tweet)
         }
     } 
+}
+exports.usage = () => {
+    return "Use !wotd enable to subscribe the current channel to the word of the day, Use !wotd disable to unsubscribe the current channel to the word of the day, and using just !wotd sends the current word of the day"
 }

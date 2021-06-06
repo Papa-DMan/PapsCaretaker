@@ -11,3 +11,7 @@ exports.run = async (bot, msg, args, queue, ytdl, ffmpeg, fs, pkg, opus, getTwee
         if (err) throw err
     })
 }
+
+exports.usage = () => {
+    return "Blacklist a user form interacting with this bot";
+}

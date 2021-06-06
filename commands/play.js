@@ -117,3 +117,7 @@ exports.run = async (bot, msg, args, queue, ytdl, ffmpeg, fs, opus, getTweet, pl
         return authres.body.access_token
     }
 }
+
+exports.usage = () => {
+    return "use pay to play some music with the bot. Currently supports Youtube, Youtube Playlists, and Spotify"
+}

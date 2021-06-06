@@ -8,3 +8,7 @@ exports.run = async (bot, msg, args) => {
         msg.reply('You need to join a voice channel first!');
     }
 }
+
+exports.usage = () => {
+    return "Summon the bot to a voice channel"
+}

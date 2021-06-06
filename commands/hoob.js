@@ -16,3 +16,6 @@ exports.run = async (bot, msg, args, queue, ytdl, ffmpeg, fs, pkg, opus, getTwee
         }
     }
 }
+exports.usage = () => {
+    return "A custom command for hoob"
+}

@@ -10,3 +10,6 @@ exports.run = (bot, msg, args, queue) => {  //eventually want to make this use e
 
     msg.channel.send("Now Playing : " + queue[0].title + '\n' + "Queue: " + qarr.join('\n'))
 }
+exports.usage = () => {
+    return "View the music queue"
+}

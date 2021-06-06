@@ -48,3 +48,162 @@ memes
 Pap's Caretaker is online! Version: 2.1.0
 memes
 Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+0
+{ id: '225770766862385152', balance: 0, workers: [] }
+memes
+Pap's Caretaker is online! Version: 2.1.0
+0
+{ id: '225770766862385152', balance: 0, workers: [] }
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+TypeError: Cannot read property 'workers' of undefined
+    at Object.get (/home/ec2-user/PapsCaretaker/currency/worker.js:13:36)
+    at Object.exports.run (/home/ec2-user/PapsCaretaker/commands/worker.js:8:16)
+    at Client.<anonymous> (/home/ec2-user/PapsCaretaker/index.js:133:25)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+Pap's Caretaker is online! Version: 2.1.0
+memes
+memes
+Pap's Caretaker is online! Version: 2.1.0
+TypeError: Cannot read property 'workers' of undefined
+    at Object.get (/home/ec2-user/PapsCaretaker/currency/worker.js:13:36)
+    at Object.exports.run (/home/ec2-user/PapsCaretaker/commands/worker.js:8:16)
+    at Client.<anonymous> (/home/ec2-user/PapsCaretaker/index.js:133:25)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+memes
+Pap's Caretaker is online! Version: 2.1.0
+TypeError: Cannot read property 'workers' of undefined
+    at Object.get (/home/ec2-user/PapsCaretaker/currency/worker.js:13:36)
+    at Object.exports.run (/home/ec2-user/PapsCaretaker/commands/worker.js:8:16)
+    at Client.<anonymous> (/home/ec2-user/PapsCaretaker/index.js:133:25)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+TypeError: Cannot read property 'workers' of undefined
+    at Object.buy (/home/ec2-user/PapsCaretaker/currency/worker.js:5:36)
+    at Object.exports.run (/home/ec2-user/PapsCaretaker/commands/worker.js:5:16)
+    at Client.<anonymous> (/home/ec2-user/PapsCaretaker/index.js:133:25)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+memes
+Pap's Caretaker is online! Version: 2.1.0
+[Error: ENOENT: no such file or directory, open '/home/ec2-user/PapsCaretaker/commands./channels.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/ec2-user/PapsCaretaker/commands./channels.json'
+}
+memes
+Pap's Caretaker is online! Version: 2.1.0
+[Error: ENOENT: no such file or directory, open '/home/ec2-user/PapsCaretaker/commands./channels.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/ec2-user/PapsCaretaker/commands./channels.json'
+}
+memes
+Pap's Caretaker is online! Version: 2.1.0
+[Error: ENOENT: no such file or directory, open '/home/ec2-user/PapsCaretaker/commands./channels.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/ec2-user/PapsCaretaker/commands./channels.json'
+}
+memes
+Pap's Caretaker is online! Version: 2.1.0
+[Error: ENOENT: no such file or directory, open '/home/ec2-user/PapsCaretaker/commands./channels.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/ec2-user/PapsCaretaker/commands./channels.json'
+}
+memes
+Pap's Caretaker is online! Version: 2.1.0
+[Error: ENOENT: no such file or directory, open '/home/ec2-user/PapsCaretaker/commands./channels.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/ec2-user/PapsCaretaker/commands./channels.json'
+}
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+[Error: ENOENT: no such file or directory, open '/home/ec2-user/PapsCaretaker/commands./../channels.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/ec2-user/PapsCaretaker/commands./../channels.json'
+}
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+Error: Cannot find module 'channels.json'
+Require stack:
+- /home/ec2-user/PapsCaretaker/commands/wotd.js
+- /home/ec2-user/PapsCaretaker/index.js
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:924:15)
+    at Module.Hook._require.Module.require (/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:61:29)
+    at require (node:internal/modules/cjs/helpers:92:18)
+    at Object.exports.run (/home/ec2-user/PapsCaretaker/commands/wotd.js:10:20)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/ec2-user/PapsCaretaker/commands/wotd.js',
+    '/home/ec2-user/PapsCaretaker/index.js'
+  ]
+}
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+Pap's Caretaker is online! Version: 2.1.0
+memes
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
+memes
+Pap's Caretaker is online! Version: 2.1.0
