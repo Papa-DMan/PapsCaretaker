@@ -2,6 +2,7 @@ const fs = require('fs')
 var data = require ('./data.json')
 exports.run = async (id) => {
     if (!data.includes(id)) {
+        newUser(id)
     } else return
 }
 function newUser(id) {
@@ -14,8 +15,7 @@ function writeData(data) {
         if (err) throw err
     })
 }
-function getId(id) {
-    var data = require('./data.json')
+function getId(id) { 
     const isId = (element) => element = id;
     var index = data.findIndex(isId)
     return data[index]

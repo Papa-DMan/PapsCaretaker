@@ -1,6 +1,6 @@
 exports.run = async (bot, msg, args, queue, ytdl, ffmpeg, fs, pkg, opus, getTweet, playSong, newPlay, newestPhoto, blacklist ) => {
 
-    var uid = msg.mentions.user.first().id
+    var uid = msg.mentions.users.first().id
     if (blacklist.includes(uid)) {
         var forDelete = blacklist.findIndex(uid)
         blacklist.splice(forDelete, 1)

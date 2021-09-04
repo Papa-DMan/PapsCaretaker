@@ -28,10 +28,10 @@ exports.run = async (bot, msg, args, queue, ytdl, ffmpeg, fs, opus, getTweet, pl
             const spotres = await needle('get', `https://api.spotify.com/v1/playlists/${playlist_id}/tracks`, { headers: {      //according to the spotify api documentation do a git request at the given url with a header with the authentication token
                 'Authorization': `Bearer ${access_token}`
             }})
-            for (var d = 0; d < spotres.body.items.length; d++) {                                   //spotres returns an object with an items array that contains all the tracks
-                await search(spotres.body.items[d].track.name, async function(err, resp) {          //search requires an input of a url and will return an error and a response
+            for (var items of spotres.body.items) {
+                await search(items.track.name, async function(err, resp) {
                     if (err) return console.log(err);
-                    if (resp.videos[0] !== undefined){
+                    if (resp.videos[0] !== undefined) {
                         addPQueue(resp.videos[0].url, resp.videos[0].title)
                     }
                 })

@@ -104,7 +104,7 @@ bot.on('message', async msg=>{                                          //on any
     let command = args.shift().toLowerCase();                   //create variable command that is the first index of the arg and make it lowercase
 
         try {                                                   //function(method) that on every message check for a new word of the day
-            const response = await getTweet('CheadleWOTD')
+            const response = await getTweet('eltonjohnWOTD')
             var newestPhoto = response.includes.media[0].url
             var tCheck = await fs.readFileSync("tweets.txt", 'utf8')
             var subbedchannels = require('./channels.json')

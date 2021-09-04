@@ -14,9 +14,9 @@ exports.run = async (bot, msg, args,) => {
             fs.writeFile('./channels.json', JSON.stringify(channels), (err) => {
                 if (err) throw err
             })
-            msg.channel.send("Subscribed to the Don Cheadle word of the day!")
+            msg.channel.send("Subscribed to the Elton John word of the day!")
         } else {
-            msg.channel.send("This channel is already subscribed to the Don Cheadle word of the day!")
+            msg.channel.send("This channel is already subscribed to the Elton John word of the day!")
         }
 
     } else if (args[0] == 'disable'){
@@ -25,7 +25,7 @@ exports.run = async (bot, msg, args,) => {
         fs.writeFile('channels.json', JSON.stringify(channels), (err) => {
             if (err) throw err
         })
-        msg.channel.send("Unsubscribed to the Don Cheadle word of the day!")
+        msg.channel.send("Unsubscribed to the Elton John word of the day!")
     } else{
         if (tweet !== "") {
             msg.channel.send(tweet)
