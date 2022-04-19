@@ -4,7 +4,7 @@ const needle = require('needle');   //webhook package to talk with apis
 const { Base } = require('discord.js'); //discords package
 const pkg = require('../package.json') // import the package.json file
 
-exports.run = async (bot, msg, args, queue, ytdl, ffmpeg, fs, opus, getTweet, playSong, newPlay, newestPhoto ) => {
+exports.run = async (bot, msg, args, queue, ytdl, ffmpeg, fs, pkg, opus, getTweet, playSong, newPlay, newestPhoto ) => {
 
     var client_id = pkg.spotifyclient_id                        //when importing a json file it creates an object so grabbing a parameter from an object and giving it a variable
     var client_secret = pkg.spotifyclient_secret
