@@ -31,6 +31,10 @@ module.exports = {
     }
 }
 
+/**
+ * @brief reads all the commands in the commands folder
+ * @returns an array of command objects
+ */
 function getCommands() : { name: string, description: string, usage: string }[] {
     let commands: { name: string, description: string, usage: string }[] = [];
     fs.readdirSync(`${rootdir}/commands`).forEach(file => {
