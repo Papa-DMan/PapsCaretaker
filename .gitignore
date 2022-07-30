@@ -1,6 +1,6 @@
 *.pem
 node_modules
 tokens.json
-.vscode/
+.vscode
 dist
 ..git
