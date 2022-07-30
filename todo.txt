@@ -1,1 +1,5 @@
-Switch help command display to an embed.
+[ ] Switch help command display to an embed.
+[ ] Figure out music queue structure and all the related commands.
+[ ] Apply similar system for the currency commands.
+[ ] figure out a nice embed or gui for the music player interactions.
+[ ] implement the rest of the non-music non-currency commands.

@@ -1,4 +1,4 @@
-import { REST, Routes, Client } from 'discord.js';
+import { REST, Routes, Client, } from 'discord.js';
 import * as fs from 'fs';
 import * as needle from 'needle';
 
@@ -27,7 +27,7 @@ async function execute(client: Client, token: string, path: string) {
 
 
 
-
+/*
     client.guilds.cache.forEach(async guild => {
         console.log(`Sending commands to guild ${guild.name}`);
         if (client.user) {
@@ -37,16 +37,11 @@ async function execute(client: Client, token: string, path: string) {
                 "Authorization": `Bot ${token}`,
             }
             var r = await needle.post(gurl, json, { headers: headers });
-            console.log(r.body);
+            console.log(r);
         }
     })
-
-
-
-
-
-
-    /*
+*/
+    
  
     const rest = new REST({ version: '10' }).setToken(token);
  
@@ -57,20 +52,13 @@ async function execute(client: Client, token: string, path: string) {
  
         if (guild && client.user) {
             var res : any = await rest.get(Routes.applicationGuildCommands(client.user.id, guild.id))
-            for (var com in res) {
-                if (!commands.find(command => command.name === res[com].name)) {
-                    commandsToPublish.push({ name: res[com].name, description: res[com].description, usage: res[com].usage, options: res[com].options });
-                }
-            }
-            for (var command in commandsToPublish) {
-                await rest.put(Routes.applicationGuildCommands(client.user.id, guild.id), {
-                    body: [commands[command]]
-                })
+            for (var command of commands) {
+                console.log(`Publishing command ${command.name} for ${guild.name}`);
+                var r = await rest.post(Routes.applicationGuildCommands(client.user.id, guild.id), {body:command});
             }
             console.log(`Registered commands for ${guild.name}`);
         }
     });
-    */
 }
 
 module.exports = {

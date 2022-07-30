@@ -5,7 +5,7 @@ var rootdir = ".";
 
 module.exports = {
     name: 'wotd',
-    description: 'Shows the word of the day. If enable or disable is specified, it will enable or disable the word of the day.',
+    description: 'Shows the word of the day.',
     usage: "wotd [enable|disable]",
     options: [{
         name: 'enable',
@@ -22,9 +22,20 @@ module.exports = {
         rootdir = dir;
     },
     interact: async function (interaction: ChatInputCommandInteraction<CacheType>) {
-        await getTweet().then(tweet => {
-            interaction.reply(tweet);
-        });
+        var sc = interaction.options.getSubcommand()
+        switch (sc) {
+            case "enable":
+                enableIntr(interaction);
+                break;
+            case "disable":
+                disableIntr(interaction);
+                break;
+            default:
+                await getTweet().then(tweet => {
+                    interaction.reply(tweet);
+                });
+                break;
+        }
     }
 
 }
@@ -66,4 +77,28 @@ async function execute(message: Message, args: string[]) {
 async function getTweet(): Promise<string> {
     var tweet = await fs.readFileSync(`${rootdir}/databases/tweet.txt`, "utf8");
     return tweet;
+}
+
+async function enableIntr(interaction: ChatInputCommandInteraction<CacheType>) {
+    var channels = require(`${rootdir}/databases/twitterchan.json`);
+    if (channels.includes(interaction.channel.id)) {
+        interaction.reply("Word of the day is already enabled in this channel.");
+    }
+    else {
+        channels.push(interaction.channel.id);
+        fs.writeFileSync(`${rootdir}/databases/twitterchan.json`, JSON.stringify(channels));
+        interaction.reply("Word of the day is now enabled in this channel.");
+    }
+}
+
+async function disableIntr(interaction: ChatInputCommandInteraction<CacheType>) {
+    var channels = require(`${rootdir}/databases/twitterchan.json`);
+    if (!channels.includes(interaction.channel.id)) {
+        interaction.reply("Word of the day is not enabled in this channel.");
+    }
+    else {
+        channels.splice(channels.indexOf(interaction.channel.id), 1);
+        fs.writeFileSync(`${rootdir}/databases/twitterchan.json`, JSON.stringify(channels));
+        interaction.reply("Word of the day is now disabled in this channel.");
+    }
 }
