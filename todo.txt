@@ -15,3 +15,4 @@ Music/voice commands:
 General commands: - feel free to add anything else you find fit
 [ ] ignore - ignore a users commands for a designated time default maybe 10min?
 [ ] quote [add|remove] - returns a random quote from a database. Adds a quote | removes a quote
+[ ] settings - and all sub commands associated with changing the bot settings
