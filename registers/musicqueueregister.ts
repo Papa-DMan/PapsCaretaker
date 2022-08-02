@@ -1,35 +1,21 @@
-import { Client } from "discord.js";
+import { AudioPlayer, VoiceConnection } from "@discordjs/voice";
+import { Client, Message } from "discord.js";
+import { Song } from "../interfaces/Song";
 
-
+//adapting code from https://github.com/eritislami/evobot/blob/master/structs/MusicQueue.ts
 
 class Queue {
-    elements = {};
-    head = 0;
-    tail = 0;
-    constructor() {
-        this.elements = {};
-        this.head = 0;
-        this.tail = 0;
-    }
-    enqueue(element) {
-        this.elements[this.tail] = element;
-        this.tail++;
-    }
-    dequeue() {
-        var element = this.elements[this.head];
-        delete this.elements[this.head];
-        this.head++;
-        return element;
-    }
-    peak() {
-        return this.elements[this.head];
-    }
-    get length() {
-        return this.tail - this.head;
-    }
-    get isEmpty() {
-        return this.length === 0;
-    }
+    public readonly message: Message;
+    public readonly connection: VoiceConnection;
+    public readonly player: AudioPlayer;
+    
+    public songs: Song[] = [];
+    public currentSong: Song | undefined;
+    public volume: number = 100;
+    public loop: boolean = false;
+    public shuffle: boolean = false;
+    public muted: boolean = false;
+    public lock: boolean = false;
 }
 
 //create a map variable to store the queues for each guild
