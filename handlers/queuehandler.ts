@@ -1,6 +1,5 @@
 import { Client, Message } from 'discord.js';
 import { joinVoiceChannel, getVoiceConnection, AudioPlayer, VoiceConnection, AudioPlayerState, AudioPlayerStatus, AudioResource, createAudioPlayer, entersState, NoSubscriberBehavior, VoiceConnectionDisconnectReason, VoiceConnectionState, VoiceConnectionStatus } from '@discordjs/voice';
-import * as fs from 'fs';
 import { Song } from '../interfaces/Song';
 import { promisify } from 'util';
 var queues: { [key: string]: Queue } = {};

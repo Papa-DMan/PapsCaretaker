@@ -1,6 +1,6 @@
 import { Message, } from 'discord.js';
 import * as fs from 'fs';
-const queuehandler = require('./queuehandler.js');
+const queuehandler = require('./queuehandler');
 module.exports = {
     name: 'message',
     description: 'Message handler',
