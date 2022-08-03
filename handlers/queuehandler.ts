@@ -3,11 +3,13 @@ import { joinVoiceChannel, getVoiceConnection, AudioPlayer, VoiceConnection, Aud
 import * as fs from 'fs';
 import { Song } from '../interfaces/Song';
 import { promisify } from 'util';
-var queues: { [key: string]: AudioPlayer } = {};
+var queues: { [key: string]: Queue } = {};
 module.exports = {
     name: 'message',
     description: 'Message handler',
-    execute: execute
+    execute: execute,
+    update: update,
+    queues: queues
 }
 function execute(message: Message, command: string, args: string[], path: string) {
     const comfile = require(`${path}/commands/${command}.js`);
@@ -27,13 +29,14 @@ function execute(message: Message, command: string, args: string[], path: string
     } else {
         connection = getVoiceConnection(message.guild.id);
     }
-
+    if (getQueue(message) == null) {
+        queues[message.guild.id] = new Queue(connection, message);
+    }
     comfile.execute(message, args, connection, getQueue(message));
-    
 }
 
 
-function getQueue(message: Message) {
+function getQueue(message: Message) : Queue | null {
     if (message.guild && message.guild.id in queues) {
         return queues[message.guild.id];
     }
@@ -199,4 +202,8 @@ export class Queue {
             console.error(error);
         }
     }
+}
+
+function update(queue: Queue, guildId: string) {
+    queues[guildId] = queue;
 }
