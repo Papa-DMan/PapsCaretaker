@@ -68,16 +68,15 @@ async function execute(message: Message, args: string[], connection: VoiceConnec
             return message.channel.send(`Could not play song.`);
         }
         if (queue) {
-            queue.songs.push(song);
+            queue.enqueue(song);
             queuehandler.update(queue, message.guild.id);
             return message.channel.send(`Added ${song.title} to the queue.`);
         } else {
             const newQueue = new Queue(connection, message);
-            newQueue.songs.push(song);
+            newQueue.enqueue(song);
             queuehandler.update(newQueue, message.guild.id);
             return message.channel.send(`Now playing ${song.title}`);
         }
-        
     }
 }
 

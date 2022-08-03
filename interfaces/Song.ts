@@ -1,5 +1,5 @@
 import { AudioResource, createAudioResource, StreamType } from '@discordjs/voice';
-import ytdl from 'ytdl-core';
+const ytdl = require('discord-ytdl-core');
 
 export interface SongData {
     title: string;
@@ -45,9 +45,9 @@ export class Song {
 
         const source = this.url.includes("youtube") ? "youtube" : "soundcloud";
 
-        if (source === "youtube") {
-            stream = await ytdl(this.url, { filter: "audioonly" });
-        }
+        
+        stream = await ytdl(this.url, { filter: 'audioonly' , opusEncoded: true});
+        
         if (!stream) return
 
         return createAudioResource(stream, { metadata: this, inputType: type, inlineVolume: true });

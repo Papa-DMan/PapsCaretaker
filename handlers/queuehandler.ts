@@ -15,7 +15,7 @@ function execute(message: Message, command: string, args: string[], path: string
     if (comfile.__internal_requires_directory) {
         comfile.__internal_setdir(path);
     }
-    if (!message.member.voice.channel) {
+    if (message.member.voice.channelId === null) {
         return message.channel.send('You must be in a voice channel to use this command.');
     }
     var connection : VoiceConnection = null
