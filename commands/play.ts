@@ -15,6 +15,7 @@ module.exports = {
     __internal_is_music: true
 }
 async function execute(message: Message, args: string[], connection: VoiceConnection, queue: Queue) {
+    if (!message || !message.member || !message.guild) return;
     if (queue && (message.member!.voice.channelId !== queue.connection.joinConfig.channelId)) {
         console.log(queue)
         console.log(message.member!.voice.channelId)
