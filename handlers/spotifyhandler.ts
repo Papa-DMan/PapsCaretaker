@@ -8,7 +8,7 @@ module.exports = {
     execute: execute
 }
 async function execute(url: string) : Promise<Song[]> {
-    if (!url) return
+    if (!url) return [];
     var chunks: string[] = url.split('/');
     var playlist_id : string = chunks[chunks.length -1].split('?')[0];
     var token = await spotAuth();

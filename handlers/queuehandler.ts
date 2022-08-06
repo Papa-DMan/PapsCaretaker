@@ -11,6 +11,7 @@ module.exports = {
     queues: queues
 }
 function execute(message: Message, command: string, args: string[], path: string) {
+    if (!message || !message.member || !message.guild) return;
     const comfile = require(`${path}/commands/${command}.js`);
     if (comfile.__internal_requires_directory) {
         comfile.__internal_setdir(path);
@@ -18,7 +19,7 @@ function execute(message: Message, command: string, args: string[], path: string
     if (message.member.voice.channelId === null) {
         return message.channel.send('You must be in a voice channel to use this command.');
     }
-    var connection : VoiceConnection = null
+    var connection : VoiceConnection | undefined;
     if (!getVoiceConnection(message.guild.id)) {
         connection = joinVoiceChannel({
             channelId: message.member.voice.channelId, 
@@ -27,6 +28,9 @@ function execute(message: Message, command: string, args: string[], path: string
             });
     } else {
         connection = getVoiceConnection(message.guild.id);
+    }
+    if (!connection) {
+        return message.channel.send('Could not connect to voice channel.');
     }
     if (getQueue(message) == null) {
         queues[message.guild.id] = new Queue(connection, message);
