@@ -3,3 +3,5 @@ node_modules
 tokens.json
 .vscode
 dist
+.env
+.env.test
